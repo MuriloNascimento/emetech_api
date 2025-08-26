@@ -1,10 +1,8 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'  # ou restrinja para o domínio do seu front: 'https://meu-frontend.com'
-
+    origins '*'  # permite qualquer domínio (rápido, sem segurança)
     resource '*',
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      expose: ['Authorization']
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end

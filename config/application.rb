@@ -11,6 +11,10 @@ module EmetechApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
+    config.action_dispatch.default_headers.merge!({
+      'Referrer-Policy' => 'strict-origin-when-cross-origin'
+    })
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
@@ -28,9 +32,5 @@ module EmetechApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-
-    config.action_dispatch.default_headers.merge!({
-      'Referrer-Policy' => 'strict-origin-when-cross-origin'
-    })
   end
 end
